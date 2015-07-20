@@ -160,7 +160,7 @@ ZEND_FUNCTION(xxtea_encrypt)
     }
 
     if (result != NULL) {
-        RETVAL_STRINGL((char *)result, ret_length, 0);
+        RETVAL_STRINGL((char *)result, ret_length);
     } else {
         RETURN_FALSE;
     }
@@ -193,7 +193,7 @@ ZEND_FUNCTION(xxtea_decrypt)
     }
 
     if (result != NULL) {
-        RETVAL_STRINGL((char *)result, ret_length, 0);
+        RETVAL_STRINGL((char *)result, ret_length);
     } else {
         RETURN_FALSE;
     }
@@ -223,10 +223,10 @@ ZEND_MINFO_FUNCTION(xxtea)
 ZEND_FUNCTION(xxtea_info)
 {
     array_init(return_value);
-    add_assoc_string(return_value, "ext_version", XXTEA_VERSION, 1);
-    add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE, 1);
-    add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR, 1);
-    add_assoc_string(return_value, "ext_homepage", XXTEA_HOMEPAGE, 1);
+    add_assoc_string(return_value, "ext_version", XXTEA_VERSION);
+    add_assoc_string(return_value, "ext_build_date", XXTEA_BUILD_DATE);
+    add_assoc_string(return_value, "ext_author", XXTEA_AUTHOR);
+    add_assoc_string(return_value, "ext_homepage", XXTEA_HOMEPAGE);
 }
 
 #endif /* if HAVE_XXTEA */
